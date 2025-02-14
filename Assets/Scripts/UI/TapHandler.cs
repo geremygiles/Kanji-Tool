@@ -33,8 +33,11 @@ public class TapHandler : MonoBehaviour
         Vector2 slotPos = new Vector2(
             slots[slotIndex].transform.position.x,
             slots[slotIndex].transform.position.y);
-
         return slotPos;
+    }
+
+    private void ToggleEmpty(int index) {
+        slots[index].ToggleEmpty();
     }
 
     #endregion
@@ -42,8 +45,9 @@ public class TapHandler : MonoBehaviour
     #region Public Methods
 
     public Vector2 GetOpenSlotPositon() {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i <= 2; i++) {
             if (slots[i].IsEmpty()) {
+                ToggleEmpty(i);
                 return GetSlotPosition(i);
             }
         }
