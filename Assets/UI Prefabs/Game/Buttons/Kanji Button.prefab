@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1103466554845574485}
   - component: {fileID: 4573213403301469042}
   - component: {fileID: 5506855713259421277}
+  - component: {fileID: 665830438885883963}
   m_Layer: 5
   m_Name: Kanji Button
   m_TagString: Untagged
@@ -121,6 +122,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &665830438885883963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019431541694943307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8888ad12341a48d5b5fb532b9326e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2344319541221425578
 GameObject:
   m_ObjectHideFlags: 0
