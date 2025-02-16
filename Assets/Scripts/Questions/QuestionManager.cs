@@ -76,6 +76,10 @@ public class QuestionManager : MonoBehaviour
                 questionProbability--;
             }
         }
+
+        if (probabilites.Count <= 0) {
+            GetComponent<SceneManager>().Quit();
+        }
     }
 
     private void UpdateImage() {
@@ -178,6 +182,15 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
+    private void UpdateQuestionLevel(bool increase) {
+        if (increase) {
+            currentQuestion.level++;
+        }
+        else {
+            currentQuestion.level--;
+        }
+    }
+
     public void CheckAnswer() {
         Slot[] slots = tapHandler.GetSlots();
 
@@ -188,6 +201,9 @@ public class QuestionManager : MonoBehaviour
             }
         }
 
+        bool answerCorrect = true;
+
+        // Assign colors and disable
         for (int i = 0; i < slots.Length; i++) {
             TappableCardButton card = slots[i].GetCard();
             if (slots[i].GetCard().GetValue() == currentQuestion.kanji[i]) {
@@ -197,12 +213,15 @@ public class QuestionManager : MonoBehaviour
             else {
                 Debug.Log("WRONG!");
                 card.GetComponent<Image>().color = new Color32(212, 53, 53, 255);
+                answerCorrect = false;
             }
 
             card.SetTappable(false);
         }
         questionComplete = true;
         UpdateBottomButtons();
+
+        UpdateQuestionLevel(answerCorrect);
     }
 
     public void DeleteSlots() {

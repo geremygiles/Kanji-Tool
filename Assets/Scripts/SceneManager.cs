@@ -28,5 +28,13 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
+    public void End() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("End");
+    }
+
+    public void StartGame() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("");
+    }
+
     #endregion
 }
