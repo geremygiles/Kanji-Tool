@@ -1,5 +1,7 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// This is attached to the cards that the player can tap to move them.
@@ -10,21 +12,20 @@ public class TappableCardButton : MonoBehaviour
     bool dealt = false;
     Vector2 target = Vector2.zero;
 
+    bool tappable = true;
+
     // Original Location
     Vector2 origin;
     bool arrived = true;
+
     float speed = 200f;
 
     Slot currentSlot = null;
+
+    string currentValue;
     
     // TapHandler
     [SerializeField] TapHandler tapHandler;
-
-
-    void Awake()
-    {
-        Application.targetFrameRate = 60;
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,24 +53,56 @@ public class TappableCardButton : MonoBehaviour
 
     // Called when the user taps a card button
     public void Tap() {
+        if (!tappable) return;
+
         // Checks Dealt
         if (!dealt) {
             // Go to first open slot
             currentSlot = tapHandler.GetOpenSlot();
             if (currentSlot != null) {
                 target = currentSlot.transform.position;
-            arrived = false;
-            dealt = true;
-            currentSlot.ToggleEmpty();
+                currentSlot.AddCard(this);
+                arrived = false;
+                dealt = true;
             }
         }
-        else {
+        else
+        {
             // Return to home slot
+            ReturnHome(false);
+        }
+    }
+
+    public void ReturnHome(bool instant) {
+        if (instant) {
+            transform.position = origin;
+            arrived = true;
+        }
+        else {
             target = origin;
             arrived = false;
-            dealt = false;
-            currentSlot.ToggleEmpty();
-            currentSlot = null;
         }
+        currentSlot.ClearCard();
+        dealt = false;
+        currentSlot = null;
+    }
+
+    public bool CheckDealt() {
+        return dealt;
+    }
+
+    public void SetValue(string val) {
+        currentValue = val;
+        gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = currentValue;
+        SetTappable(true);
+        GetComponent<Image>().color = Color.white;
+    }
+
+    public string GetValue() {
+        return currentValue;
+    }
+
+    public void SetTappable(bool value) {
+        tappable = value;
     }
 }

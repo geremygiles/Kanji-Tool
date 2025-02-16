@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class QuestionManager : MonoBehaviour
@@ -16,14 +16,29 @@ public class QuestionManager : MonoBehaviour
 
     [SerializeField] Image questionImage;
 
-    [SerializeField] GameObject optionButtons;
+    [SerializeField] public GameObject optionButtons;
 
     [SerializeField] GameObject answerSlots;
 
     [SerializeField] Slot slotPrefab;
 
+    [SerializeField] Button checkButton;
+
+    [SerializeField] Button idkButton;
+
+    [SerializeField] Button nextButton;
+
+    TapHandler tapHandler;
+
+    bool questionComplete = false;
+
     private string randomKanji = "一七万三上下中九二五人今休何先入八六円出分前北十千午半南友右名四国土外大天女子学小山川左年後日時書月木本来東校母毎気水火父生男白百聞行西見話語読車金長間雨電食高";
 
+
+    void Awake()
+    {
+        tapHandler = GetComponent<TapHandler>();
+    }
     void Start()
     {
         LoadQuestion();
@@ -40,6 +55,9 @@ public class QuestionManager : MonoBehaviour
 
         // Load the answer(s) in a random location, with the other options filled with random kanji.
         UpdateOptions();
+
+        questionComplete = false;
+        UpdateBottomButtons();
     }
 
     private void PickQuestion() {
@@ -70,36 +88,44 @@ public class QuestionManager : MonoBehaviour
         for (int i = 0; i < currentQuestion.kanji.Length; i++) {
             int random = Random.Range(0, optionIndexes.Count);
 
-            Transform option = optionButtons.transform.GetChild(optionIndexes[random]).GetChild(0);
+            Transform option = optionButtons.transform.GetChild(optionIndexes[random]);
             optionIndexes.RemoveAt(random);
 
-            option.gameObject.GetComponent<TextMeshProUGUI>().text = currentQuestion.kanji[i];
+            option.GetComponent<TappableCardButton>().SetValue(currentQuestion.kanji[i]);
         }
 
+        List<string> usedCharacters = new();
+
         for (int i = 0; i < optionIndexes.Count; i++) {
-            Transform option = optionButtons.transform.GetChild(optionIndexes[i]).GetChild(0);
+            Transform option = optionButtons.transform.GetChild(optionIndexes[i]);
 
             string randomKanjiChar = "";
             bool retry = true;
             while (retry) {
+                retry = false;
                 string test = randomKanji[Random.Range(0, randomKanji.Length)].ToString();
 
                 foreach (string kanji in currentQuestion.kanji) {
                     if (test == kanji) {
-                        break;
+                        retry = true;
                     }
                 }
 
-                retry = false;
+                foreach (string kanji in usedCharacters) {
+                    if (test == kanji) {
+                        retry = true;
+                    }
+                }
+
                 randomKanjiChar = test;
             }
             
-            option.gameObject.GetComponent<TextMeshProUGUI>().text = randomKanjiChar;
+            option.GetComponent<TappableCardButton>().SetValue(randomKanjiChar);
+            usedCharacters.Add(randomKanjiChar);
         }
     }
 
     private void UpdateSlots() {
-        TapHandler tapHandler = GetComponent<TapHandler>();
         switch (currentQuestion.kanji.Length) {
             case 0:
                 break;
@@ -137,5 +163,56 @@ public class QuestionManager : MonoBehaviour
                 tapHandler.PopulateSlots(slotList4);
                 break;
         }
+    }
+
+    private void UpdateBottomButtons() {
+        if (questionComplete) {
+            checkButton.gameObject.SetActive(false);
+            idkButton.gameObject.SetActive(false);
+            nextButton.gameObject.SetActive(true);
+        }
+        else {
+            nextButton.gameObject.SetActive(false);
+            checkButton.gameObject.SetActive(true);
+            idkButton.gameObject.SetActive(true);
+        }
+    }
+
+    public void CheckAnswer() {
+        Slot[] slots = tapHandler.GetSlots();
+
+        // Check Empty
+        for (int i = 0; i < slots.Length; i++) {
+            if (slots[i].GetCard() == null) {
+                return;
+            }
+        }
+
+        for (int i = 0; i < slots.Length; i++) {
+            TappableCardButton card = slots[i].GetCard();
+            if (slots[i].GetCard().GetValue() == currentQuestion.kanji[i]) {
+                Debug.Log("correct~!");
+                card.GetComponent<Image>().color = new Color32(77,173,76,255);
+            }
+            else {
+                Debug.Log("WRONG!");
+                card.GetComponent<Image>().color = new Color32(212, 53, 53, 255);
+            }
+
+            card.SetTappable(false);
+        }
+        questionComplete = true;
+        UpdateBottomButtons();
+    }
+
+    public void DeleteSlots() {
+        for (int i = answerSlots.transform.childCount - 1; i >= 0; i--) {
+            Destroy(answerSlots.transform.GetChild(i).gameObject);
+        }
+    }
+
+    public void Next() {
+        tapHandler.ClearSlots();
+        LoadQuestion();
     }
 }

@@ -6,6 +6,8 @@ public class Slot : MonoBehaviour
     // Slot Empty
     private bool empty = true;
 
+    private TappableCardButton currentCard = null;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,11 +23,19 @@ public class Slot : MonoBehaviour
     #region Public Methods
 
     public bool IsEmpty() {
-        return empty;
+        return currentCard == null;
     }
 
-    public void ToggleEmpty() {
-        empty = !empty;
+    public void AddCard(TappableCardButton card) {
+        currentCard = card;
+    }
+
+    public void ClearCard() {
+        currentCard = null;
+    }
+
+    public TappableCardButton GetCard() {
+        return currentCard;
     }
 
     #endregion

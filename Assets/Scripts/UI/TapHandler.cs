@@ -42,16 +42,22 @@ public class TapHandler : MonoBehaviour
         return slots[slotIndex];
     }
 
-    private void ToggleEmpty(int index) {
-        slots[index].ToggleEmpty();
-    }
-
     #endregion
 
     #region Public Methods
 
     public void PopulateSlots(Slot[] slotList) {
         slots = slotList;
+    }
+
+    public void ClearSlots() {
+        foreach (TappableCardButton card in GetComponent<QuestionManager>().optionButtons.GetComponentsInChildren<TappableCardButton>()) {
+            if (card.CheckDealt()) {
+                card.ReturnHome(true);
+            }
+        }
+        GetComponent<QuestionManager>().DeleteSlots();
+        slots = null;
     }
 
     public Slot GetOpenSlot() {
@@ -62,6 +68,10 @@ public class TapHandler : MonoBehaviour
         }
 
         return null;
+    }
+
+    public Slot[] GetSlots() {
+        return slots;
     }
 
     #endregion    
