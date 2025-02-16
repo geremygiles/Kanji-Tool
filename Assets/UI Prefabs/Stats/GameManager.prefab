@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3549669772331132875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2197938352931868980}
+  - component: {fileID: 5403419357668649133}
+  - component: {fileID: 7061204686969103098}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2197938352931868980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549669772331132875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5403419357668649133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549669772331132875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e25a96c1e2774ed8af088882630b71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: []
+--- !u!114 &7061204686969103098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549669772331132875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d62f481e020842e89513e8c837817e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questions:
+  - {fileID: 11400000, guid: b675e2466f8494572af0ce4cd06771f4, type: 2}
+  - {fileID: 11400000, guid: 21a9130cf12d942138a69b46d65a074d, type: 2}
+  - {fileID: 11400000, guid: 56bbfdf77e1ed4140bdabcd1f87d036d, type: 2}
+  - {fileID: 11400000, guid: a258966819d504b5faba1f316d90ecaf, type: 2}
+  - {fileID: 11400000, guid: c65ebcdce3ee24ee7a27e29aedb2688e, type: 2}
+  currentQuestion: {fileID: 0}
+  probabilites: 
+  questionImage: {fileID: 0}
+  optionButtons: {fileID: 0}
+  answerSlots: {fileID: 0}
+  slotPrefab: {fileID: 5620162516652182400, guid: 440a7c910988f4b429485f3bf8194994, type: 3}
+  checkButton: {fileID: 0}
+  idkButton: {fileID: 0}
+  nextButton: {fileID: 0}

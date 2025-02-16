@@ -1,12 +1,20 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
-
+public static SceneManager Instance { get; private set; }
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        Application.targetFrameRate = 60;
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Application.targetFrameRate = 60;
+        }
+        else {
+            Destroy(gameObject);
+        }
+        
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,7 +40,11 @@ public class SceneManager : MonoBehaviour
     }
 
     public void StartGame() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("PicToKanji");
+    }
+
+    public void Stats() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Stats");
     }
 
     #endregion

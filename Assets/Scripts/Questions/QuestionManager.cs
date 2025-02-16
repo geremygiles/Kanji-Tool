@@ -38,6 +38,8 @@ public class QuestionManager : MonoBehaviour
     }
     void Start()
     {
+        // Stopping if on Stats screen
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Stats") return;
         LoadQuestion();
     }
 
@@ -75,7 +77,7 @@ public class QuestionManager : MonoBehaviour
         }
 
         if (probabilites.Count <= 0) {
-            GetComponent<SceneManager>().Quit();
+            FindFirstObjectByType<SceneManager>().Quit();
         }
     }
 
@@ -230,5 +232,9 @@ public class QuestionManager : MonoBehaviour
     public void Next() {
         tapHandler.ClearSlots();
         LoadQuestion();
+    }
+
+    public Question[] GetQuestions() {
+        return questions.ToArray();
     }
 }
