@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PicToKanji.unity
     guid: 35f8a4d2296b7433b8a080c5f124b81b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e5079822ea3e54612a4b5e3d215fca50
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: c4c13d273d6014d95a7dbf0bee0cc735, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 2d67b59962551442885e585a0a8d3613, type: 2}

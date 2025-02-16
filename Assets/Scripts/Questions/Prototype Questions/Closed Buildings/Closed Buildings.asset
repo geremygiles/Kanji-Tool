@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1f8671c773a445b88c436452752f68, type: 3}
   m_Name: Closed Buildings
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  kanji: []
-  level: 0
+  image: {fileID: 7573330801584614754, guid: 05023fbfb6b87425585cc590a76ce737, type: 3}
+  kanji:
+  - "\u9589"
+  - "\u9928"
+  level: 5

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1f8671c773a445b88c436452752f68, type: 3}
   m_Name: College
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  kanji: 
-  length: 0
+  image: {fileID: 6281470536697442642, guid: 2e971a251972e4fd19b63783c422e2b4, type: 3}
+  kanji:
+  - "\u5927"
+  - "\u5B66"
   level: 0
