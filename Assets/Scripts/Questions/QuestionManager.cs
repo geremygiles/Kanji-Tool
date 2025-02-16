@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class QuestionManager : MonoBehaviour
