@@ -9,11 +9,22 @@ public class TappableCardButton : MonoBehaviour
     // Card Dealt?
     bool dealt = false;
     Vector2 target = Vector2.zero;
+
+    // Original Location
+    Vector2 origin;
     bool arrived = true;
-    float speed = 100f;
+    float speed = 200f;
+
+    Slot currentSlot = null;
     
     // TapHandler
     [SerializeField] TapHandler tapHandler;
+
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,15 +33,15 @@ public class TappableCardButton : MonoBehaviour
         //    tapHandler = FindAnyObjectByType<TapHandler>();
         //}
 
-        target = transform.position;
+        origin = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!arrived) {
-            var step = speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target, step * 10);
+            var step = speed;
+            transform.position = Vector2.MoveTowards(transform.position, target, step);
             if (Vector3.Distance(transform.position, target) < 0.001f) {
                 // Stop moving
                 transform.position = target;
@@ -44,11 +55,21 @@ public class TappableCardButton : MonoBehaviour
         // Checks Dealt
         if (!dealt) {
             // Go to first open slot
-            target = tapHandler.GetOpenSlotPositon();
+            currentSlot = tapHandler.GetOpenSlot();
+            if (currentSlot != null) {
+                target = currentSlot.transform.position;
             arrived = false;
+            dealt = true;
+            currentSlot.ToggleEmpty();
+            }
         }
         else {
             // Return to home slot
+            target = origin;
+            arrived = false;
+            dealt = false;
+            currentSlot.ToggleEmpty();
+            currentSlot = null;
         }
     }
 }

@@ -36,6 +36,12 @@ public class TapHandler : MonoBehaviour
         return slotPos;
     }
 
+    /// </summary>
+    /// <param name="slotIndex">Slot to return</param>
+    private Slot GetSlot(int slotIndex) {
+        return slots[slotIndex];
+    }
+
     private void ToggleEmpty(int index) {
         slots[index].ToggleEmpty();
     }
@@ -44,15 +50,14 @@ public class TapHandler : MonoBehaviour
 
     #region Public Methods
 
-    public Vector2 GetOpenSlotPositon() {
+    public Slot GetOpenSlot() {
         for (int i = 0; i <= 2; i++) {
             if (slots[i].IsEmpty()) {
-                ToggleEmpty(i);
-                return GetSlotPosition(i);
+                return GetSlot(i);
             }
         }
 
-        return Vector2.zero;
+        return null;
     }
 
     #endregion    

@@ -212,7 +212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6F22"
+  m_text: "\u4F8B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5bf0c02df62594b949b87d3cdfb553f3, type: 2}
   m_sharedMaterial: {fileID: 4062034484915271267, guid: 5bf0c02df62594b949b87d3cdfb553f3, type: 2}
