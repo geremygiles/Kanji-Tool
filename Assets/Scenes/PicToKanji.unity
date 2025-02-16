@@ -466,6 +466,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b675e2466f8494572af0ce4cd06771f4, type: 2}
   - {fileID: 11400000, guid: 21a9130cf12d942138a69b46d65a074d, type: 2}
   - {fileID: 11400000, guid: 56bbfdf77e1ed4140bdabcd1f87d036d, type: 2}
+  currentQuestion: {fileID: 0}
+  probabilites: 
+  questionImage: {fileID: 2062347139}
+  optionButtons: {fileID: 1028588576}
 --- !u!1001 &223513620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1447,10 +1451,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 219288154}
     - target: {fileID: 977447306731799804, guid: 0e739a7cd7416424dabc0c103dbdbcf0, type: 3}
-      propertyPath: m_text
-      value: "\u5B66"
-      objectReference: {fileID: 0}
-    - target: {fileID: 977447306731799804, guid: 0e739a7cd7416424dabc0c103dbdbcf0, type: 3}
       propertyPath: m_fontSize
       value: 172.65
       objectReference: {fileID: 0}
@@ -2030,10 +2030,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 219288154}
     - target: {fileID: 977447306731799804, guid: 0e739a7cd7416424dabc0c103dbdbcf0, type: 3}
-      propertyPath: m_text
-      value: "\u5927"
-      objectReference: {fileID: 0}
-    - target: {fileID: 977447306731799804, guid: 0e739a7cd7416424dabc0c103dbdbcf0, type: 3}
       propertyPath: m_fontSize
       value: 172.65
       objectReference: {fileID: 0}
@@ -2277,7 +2273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6281470536697442642, guid: 2e971a251972e4fd19b63783c422e2b4, type: 3}
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
