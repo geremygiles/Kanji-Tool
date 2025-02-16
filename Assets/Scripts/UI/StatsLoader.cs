@@ -20,7 +20,7 @@ public class StatsLoader : MonoBehaviour
     }
 
     private void LoadData() {
-        foreach (Question question in questionManager.GetQuestions()) {
+        foreach (Question question in FindFirstObjectByType<GameData>().questions) {
             var item = Instantiate(itemPrefab, transform);
 
             // Set Kanji

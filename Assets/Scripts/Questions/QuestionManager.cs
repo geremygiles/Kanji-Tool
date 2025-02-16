@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class QuestionManager : MonoBehaviour
 {
     // Question Data
-    [SerializeField] List<Question> questions;
+    GameData gameData;
 
     [SerializeField] Question currentQuestion;
 
@@ -34,6 +34,7 @@ public class QuestionManager : MonoBehaviour
 
     void Awake()
     {
+        gameData = FindFirstObjectByType<GameData>();
         tapHandler = GetComponent<TapHandler>();
     }
     void Start()
@@ -62,14 +63,14 @@ public class QuestionManager : MonoBehaviour
     private void PickQuestion() {
         int random = probabilites[Random.Range(0, probabilites.Count)];
 
-        currentQuestion = questions[random];
+        currentQuestion = gameData.questions[random];
     }
 
     private void UpdateProbabilites() {
         probabilites.Clear();
 
-        for (int index = 0; index < questions.Count; index++) {
-            int questionProbability = 10 - questions[index].level;
+        for (int index = 0; index < gameData.questions.Count; index++) {
+            int questionProbability = 10 - gameData.questions[index].level;
             while (questionProbability > 0) {
                 probabilites.Add(index);
                 questionProbability--;
@@ -232,9 +233,5 @@ public class QuestionManager : MonoBehaviour
     public void Next() {
         tapHandler.ClearSlots();
         LoadQuestion();
-    }
-
-    public Question[] GetQuestions() {
-        return questions.ToArray();
     }
 }
