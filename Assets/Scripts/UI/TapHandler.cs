@@ -50,8 +50,12 @@ public class TapHandler : MonoBehaviour
 
     #region Public Methods
 
+    public void PopulateSlots(Slot[] slotList) {
+        slots = slotList;
+    }
+
     public Slot GetOpenSlot() {
-        for (int i = 0; i <= 2; i++) {
+        for (int i = 0; i < slots.Length; i++) {
             if (slots[i].IsEmpty()) {
                 return GetSlot(i);
             }
