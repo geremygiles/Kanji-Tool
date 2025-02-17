@@ -14,4 +14,6 @@ public class Question : ScriptableObject
 
     public string[] pronounciation;
 
+    public string meaning;
+
 }

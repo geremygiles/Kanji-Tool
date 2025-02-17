@@ -18,4 +18,6 @@ MonoBehaviour:
   - "\u9928"
   level: 10
   triesRemaining: 1
-  pronounciation: "\u3078\u3044\u304B\u3093"
+  pronounciation:
+  - "\u3078\u3044"
+  - "\u304B\u3093"

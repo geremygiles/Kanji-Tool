@@ -58,15 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d62f481e020842e89513e8c837817e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questions:
-  - {fileID: 11400000, guid: b675e2466f8494572af0ce4cd06771f4, type: 2}
-  - {fileID: 11400000, guid: 21a9130cf12d942138a69b46d65a074d, type: 2}
-  - {fileID: 11400000, guid: 56bbfdf77e1ed4140bdabcd1f87d036d, type: 2}
-  - {fileID: 11400000, guid: a258966819d504b5faba1f316d90ecaf, type: 2}
-  - {fileID: 11400000, guid: c65ebcdce3ee24ee7a27e29aedb2688e, type: 2}
   currentQuestion: {fileID: 0}
   probabilites: 
   questionImage: {fileID: 0}
+  upperText: {fileID: 0}
   optionButtons: {fileID: 0}
   answerSlots: {fileID: 0}
   slotPrefab: {fileID: 5620162516652182400, guid: 440a7c910988f4b429485f3bf8194994, type: 3}
