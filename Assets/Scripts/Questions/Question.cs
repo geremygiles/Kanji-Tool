@@ -9,4 +9,6 @@ public class Question : ScriptableObject
 
     public int level = 0;
 
+    public int triesRemaining = 2;
+
 }

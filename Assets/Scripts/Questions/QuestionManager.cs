@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,8 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] List<int> probabilites;
 
     [SerializeField] Image questionImage;
+
+    [SerializeField] TextMeshProUGUI upperText;
 
     [SerializeField] public GameObject optionButtons;
 
@@ -57,13 +61,20 @@ public class QuestionManager : MonoBehaviour
         UpdateOptions();
 
         questionComplete = false;
+        ClearUpperText();
         UpdateBottomButtons();
+    }
+
+    private void ClearUpperText() {
+        upperText.text = "";
     }
 
     private void PickQuestion() {
         int random = probabilites[Random.Range(0, probabilites.Count)];
 
         currentQuestion = gameData.questions[random];
+
+        currentQuestion.triesRemaining = 2;
     }
 
     private void UpdateProbabilites() {
@@ -206,22 +217,76 @@ public class QuestionManager : MonoBehaviour
         // Assign colors and disable
         for (int i = 0; i < slots.Length; i++) {
             TappableCardButton card = slots[i].GetCard();
-            if (slots[i].GetCard().GetValue() == currentQuestion.kanji[i]) {
+            if (card.GetValue() == currentQuestion.kanji[i]) {
                 Debug.Log("correct~!");
                 card.GetComponent<Image>().color = new Color32(77,173,76,255);
+                card.SetTappable(false);
+            }
+            else if (currentQuestion.kanji.Contains(card.GetValue())) {
+                Debug.Log("Wrong Location...");
+                card.GetComponent<Image>().color = new Color32(240,242,78,255);
+
+                if (currentQuestion.triesRemaining > 1) {
+                    upperText.text = "もう一度...";
+                    currentQuestion.level++;
+                    answerCorrect = false;
+                }
+
+                else {
+                    upperText.text = "";
+                    foreach (string kanji in currentQuestion.kanji) {
+                        upperText.text += kanji;
+                    }
+                
+                    answerCorrect = false;
+                    card.SetTappable(false);
+                    questionComplete = true;
+
+                    UpdateBottomButtons();
+                    
+                }
             }
             else {
-                Debug.Log("WRONG!");
+                Debug.Log("WRONG!"); 
                 card.GetComponent<Image>().color = new Color32(212, 53, 53, 255);
-                answerCorrect = false;
+
+                if (currentQuestion.triesRemaining > 1) {
+                    upperText.text = "もう一度...";
+                    currentQuestion.level++;
+                    answerCorrect = false;
+                }
+                else {
+                    upperText.text = "";
+                    foreach (string kanji in currentQuestion.kanji) {
+                        upperText.text += kanji;
+                    }
+                
+                    answerCorrect = false;
+                    card.SetTappable(false);
+                    questionComplete = true;
+
+                    UpdateBottomButtons();
+                    
+                }
+
+                
             }
 
-            card.SetTappable(false);
+            
         }
-        questionComplete = true;
-        UpdateBottomButtons();
+        
+        if (answerCorrect) {
+            questionComplete = true;
+            UpdateBottomButtons();
+            upperText.text = "よくできた！";
+        }
+        else {
+            currentQuestion.triesRemaining--;
+            questionComplete = false;
+        }
 
         UpdateQuestionLevel(answerCorrect);
+        
     }
 
     public void DeleteSlots() {
