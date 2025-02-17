@@ -18,4 +18,9 @@ public class GameData : MonoBehaviour
         }
         
     }
+
+    public void ResetQuestion(int index) {
+        questions[index].level = 0;
+        questions[index].triesRemaining = 2;
+    }
 }

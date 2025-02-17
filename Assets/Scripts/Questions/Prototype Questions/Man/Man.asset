@@ -15,7 +15,8 @@ MonoBehaviour:
   image: {fileID: -4675984455548750182, guid: df0744e084b4e42788dbd11004d715f0, type: 3}
   kanji:
   - "\u4EBA"
-  level: 0
+  level: 1
   triesRemaining: 2
   pronounciation:
   - "\u3072\u3068"
+  meaning: 

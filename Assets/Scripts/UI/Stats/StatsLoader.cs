@@ -15,25 +15,37 @@ public class StatsLoader : MonoBehaviour
         questionManager = Instantiate(qmPrefab);
 
         LoadData();
-        LoadData();
-        LoadData();
     }
 
     private void LoadData() {
-        foreach (Question question in FindFirstObjectByType<GameData>().questions) {
+        var questions = FindFirstObjectByType<GameData>().questions;
+
+        for (int i = 0; i < questions.Count; i++) {
             var item = Instantiate(itemPrefab, transform);
+
+            item.GetComponent<SlotItem>().question = questions[i];
+            item.GetComponent<SlotItem>().questionIndex = i;
 
             // Set Kanji
             var kanjiText = item.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
             kanjiText.text = "";
 
-            foreach (string character in question.kanji) {
+            foreach (string character in questions[i].kanji) {
                 kanjiText.text += character;
             }
 
             // Set Level
             var levelText = item.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            levelText.text = "Reviews Remaining: " + (10 - question.level);
+            levelText.text = "Reviews Remaining: " + (10 - questions[i].level);
+            
         }
+    }
+
+    public void ReloadData() {
+        for (int i = transform.childCount - 1; i >= 0; i--) {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
+        LoadData();
     }
 }

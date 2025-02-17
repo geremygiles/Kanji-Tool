@@ -16,8 +16,9 @@ MonoBehaviour:
   kanji:
   - "\u9589"
   - "\u9928"
-  level: 10
-  triesRemaining: 1
+  level: 0
+  triesRemaining: 2
   pronounciation:
   - "\u3078\u3044"
   - "\u304B\u3093"
+  meaning: 

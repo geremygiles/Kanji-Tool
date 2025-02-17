@@ -17,9 +17,10 @@ MonoBehaviour:
   - "\u6620"
   - "\u753B"
   - "\u9928"
-  level: 1
+  level: 0
   triesRemaining: 2
   pronounciation:
   - "\u3048\u3044"
   - "\u304C"
   - "\u304B\u3093"
+  meaning: 

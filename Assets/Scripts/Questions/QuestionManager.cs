@@ -52,7 +52,8 @@ public class QuestionManager : MonoBehaviour
         // Choose a "random" question
         UpdateProbabilites();
 
-        // Load the question
+        if (probabilites.Count > 0) {
+            // Load the question
         PickQuestion();
         UpdateImage();
         UpdateSlots();
@@ -63,6 +64,7 @@ public class QuestionManager : MonoBehaviour
         questionComplete = false;
         ClearUpperText();
         UpdateBottomButtons();
+        }
     }
 
     private void ClearUpperText() {
@@ -89,7 +91,8 @@ public class QuestionManager : MonoBehaviour
         }
 
         if (probabilites.Count <= 0) {
-            FindFirstObjectByType<SceneManager>().Quit();
+            Debug.Log("Ending...");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("End");
         }
     }
 
