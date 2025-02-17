@@ -16,3 +16,6 @@ MonoBehaviour:
   kanji:
   - "\u4EBA"
   level: 0
+  triesRemaining: 2
+  pronounciation:
+  - "\u3072\u3068"

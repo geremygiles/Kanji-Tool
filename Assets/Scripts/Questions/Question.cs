@@ -1,3 +1,4 @@
+using Unity.Multiplayer.Center.Common;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Question", menuName = "Scriptable Objects/Question")]
@@ -10,5 +11,7 @@ public class Question : ScriptableObject
     public int level = 0;
 
     public int triesRemaining = 2;
+
+    public string[] pronounciation;
 
 }

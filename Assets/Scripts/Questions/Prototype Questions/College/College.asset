@@ -17,3 +17,7 @@ MonoBehaviour:
   - "\u5927"
   - "\u5B66"
   level: 0
+  triesRemaining: 2
+  pronounciation:
+  - "\u3060\u3044"
+  - "\u304C\u304F"

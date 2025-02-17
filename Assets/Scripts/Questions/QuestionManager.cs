@@ -202,6 +202,13 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
+    private void AddFurigana() {
+        Slot[] slots = tapHandler.GetSlots();
+        for (int i = 0; i < slots.Length; i++) {
+            slots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = currentQuestion.pronounciation[i];
+        }
+    }
+
     public void CheckAnswer() {
         Slot[] slots = tapHandler.GetSlots();
 
@@ -237,6 +244,13 @@ public class QuestionManager : MonoBehaviour
                     foreach (string kanji in currentQuestion.kanji) {
                         upperText.text += kanji;
                     }
+
+                    upperText.text += "\n";
+
+                    foreach (string section in currentQuestion.pronounciation) {
+                        upperText.text += section;
+                    }
+                    
                 
                     answerCorrect = false;
                     card.SetTappable(false);
@@ -260,25 +274,28 @@ public class QuestionManager : MonoBehaviour
                     foreach (string kanji in currentQuestion.kanji) {
                         upperText.text += kanji;
                     }
+
+                    upperText.text += "\n";
+
+                    foreach (string section in currentQuestion.pronounciation) {
+                        upperText.text += section;
+                    }
+                    
                 
                     answerCorrect = false;
                     card.SetTappable(false);
                     questionComplete = true;
 
                     UpdateBottomButtons();
-                    
                 }
-
-                
             }
-
-            
         }
         
         if (answerCorrect) {
             questionComplete = true;
             UpdateBottomButtons();
             upperText.text = "よくできた！";
+            AddFurigana();
         }
         else {
             currentQuestion.triesRemaining--;
