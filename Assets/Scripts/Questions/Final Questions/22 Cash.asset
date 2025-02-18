@@ -16,7 +16,7 @@ MonoBehaviour:
   kanji:
   - "\u73FE"
   - "\u91D1"
-  level: 10
+  level: 0
   triesRemaining: 1
   pronounciation:
   - "\u3052\u3093"

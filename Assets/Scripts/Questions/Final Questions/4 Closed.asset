@@ -17,7 +17,7 @@ MonoBehaviour:
   - "\u6E96"
   - "\u5099"
   - "\u4E2D"
-  level: 10
+  level: 0
   triesRemaining: 1
   pronounciation:
   - "\u3058\u3085\u3093"
