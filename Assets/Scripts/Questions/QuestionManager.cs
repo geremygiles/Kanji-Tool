@@ -29,6 +29,10 @@ public class QuestionManager : MonoBehaviour
 
     [SerializeField] Button nextButton;
 
+    AudioSource audioSource;
+
+    [SerializeField] AudioClip[] clips;
+
     TapHandler tapHandler;
 
     bool questionComplete = false;
@@ -231,9 +235,13 @@ public class QuestionManager : MonoBehaviour
                 Debug.Log("correct~!");
                 card.GetComponent<Image>().color = new Color32(77,173,76,255);
                 card.SetTappable(false);
+                // Clip 0 is correct
+                audioSource.PlayOneShot(clips[0]);
             }
             else if (currentQuestion.kanji.Contains(card.GetValue())) {
                 Debug.Log("Wrong Location...");
+                // Clip 1 is close
+                audioSource.PlayOneShot(clips[1]);
                 card.GetComponent<Image>().color = new Color32(240,242,78,255);
 
                 if (currentQuestion.triesRemaining > 1) {
@@ -266,6 +274,8 @@ public class QuestionManager : MonoBehaviour
             else {
                 Debug.Log("WRONG!"); 
                 card.GetComponent<Image>().color = new Color32(212, 53, 53, 255);
+                // Clip 2 is incorrect
+                audioSource.PlayOneShot(clips[2]);
 
                 if (currentQuestion.triesRemaining > 1) {
                     upperText.text = "もう一度...";

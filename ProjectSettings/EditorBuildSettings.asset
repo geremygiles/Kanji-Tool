@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: c01e199fd906c4bc19033118068c239e
+  - enabled: 1
+    path: Assets/Scenes/KanjiToPic.unity
+    guid: d0b415d2459f34fc289b77bbc9503810
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: c4c13d273d6014d95a7dbf0bee0cc735, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 2d67b59962551442885e585a0a8d3613, type: 2}

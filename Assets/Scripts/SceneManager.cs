@@ -40,7 +40,8 @@ public static SceneManager Instance { get; private set; }
     }
 
     public void StartGame() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("PicToKanji");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("PicToKanji");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("KanjitoPic");
     }
 
     public void Stats() {

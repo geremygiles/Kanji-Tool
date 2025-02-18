@@ -22,6 +22,8 @@ public class TappableCardButton : MonoBehaviour
     Slot currentSlot = null;
 
     string currentValue;
+
+    Sprite currentSprite;
     
     // TapHandler
     [SerializeField] TapHandler tapHandler;
@@ -97,9 +99,21 @@ public class TappableCardButton : MonoBehaviour
         GetComponent<Image>().color = Color.white;
     }
 
+    public void SetValue(Sprite sprite) {
+        currentSprite = sprite;
+        gameObject.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+        SetTappable(true);
+        GetComponent<Image>().color = Color.white;
+    }
+
     public string GetValue() {
         return currentValue;
     }
+
+    public Sprite GetImageValue(){
+        return currentSprite;
+    }
+    
 
     public void SetTappable(bool value) {
         tappable = value;

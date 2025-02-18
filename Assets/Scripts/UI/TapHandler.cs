@@ -59,6 +59,14 @@ public class TapHandler : MonoBehaviour
         GetComponent<QuestionManager>().DeleteSlots();
         slots = null;
     }
+    
+    public void ClearSlot() {
+        foreach (TappableCardButton card in GetComponent<QuestionManager>().optionButtons.GetComponentsInChildren<TappableCardButton>()) {
+            if (card.CheckDealt()) {
+                card.ReturnHome(true);
+            }
+        }
+    }
 
     public Slot GetOpenSlot() {
         for (int i = 0; i < slots.Length; i++) {
@@ -72,6 +80,10 @@ public class TapHandler : MonoBehaviour
 
     public Slot[] GetSlots() {
         return slots;
+    }
+
+    public Slot GetSlot() {
+        return slots[0];
     }
 
     #endregion    
