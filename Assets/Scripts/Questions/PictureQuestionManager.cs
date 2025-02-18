@@ -39,6 +39,7 @@ public class PictureQuestionManager : MonoBehaviour
 
     List<Sprite> usedImages;
 
+    int switchRandom = 1;
 
     void Awake()
     {
@@ -56,7 +57,7 @@ public class PictureQuestionManager : MonoBehaviour
         // Choose a "random" question
         UpdateProbabilites();
 
-        if (probabilites.Count > 0) {
+        if (probabilites.Count > 0 && switchRandom == 1) {
             // Load the question
         PickQuestion();
         UpdateText();
@@ -85,7 +86,6 @@ public class PictureQuestionManager : MonoBehaviour
 
     private void UpdateProbabilites() {
         probabilites.Clear();
-
         for (int index = 0; index < gameData.questions.Count; index++) {
             int questionProbability = 10 - gameData.questions[index].level;
             while (questionProbability > 0) {
@@ -93,7 +93,6 @@ public class PictureQuestionManager : MonoBehaviour
                 questionProbability--;
             }
         }
-
         if (probabilites.Count <= 0) {
             Debug.Log("Ending...");
             UnityEngine.SceneManagement.SceneManager.LoadScene("End");
@@ -171,9 +170,9 @@ public class PictureQuestionManager : MonoBehaviour
     }
 
     private void AddFurigana() {
-        Slot[] slots = tapHandler.GetSlots();
-        for (int i = 0; i < slots.Length; i++) {
-            slots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = currentQuestion.pronounciation[i];
+        questionText.text += "\n";
+        foreach (string character in currentQuestion.pronounciation) {
+            questionText.text += character;
         }
     }
 
@@ -233,7 +232,7 @@ public class PictureQuestionManager : MonoBehaviour
             questionComplete = true;
             UpdateBottomButtons();
             upperText.text = "よくできた！";
-            //AddFurigana();
+            AddFurigana();
         }
         else {
             currentQuestion.triesRemaining--;
@@ -249,7 +248,19 @@ public class PictureQuestionManager : MonoBehaviour
     }
 
     public void Next() {
-        tapHandler.ClearSlot();
-        LoadQuestion();
+        int switchRandom = Random.Range(0,2);
+
+        Debug.Log(switchRandom);
+
+        if (switchRandom == 0) {
+            Debug.Log("Switching to Pic to Kanji Question");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("PicToKanji");
+        }
+
+        else if (switchRandom == 1) {
+            Debug.Log("Staying...");
+            tapHandler.ClearSlot();
+            LoadQuestion();
+        }
     }
 }

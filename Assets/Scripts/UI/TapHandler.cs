@@ -61,7 +61,7 @@ public class TapHandler : MonoBehaviour
     }
     
     public void ClearSlot() {
-        foreach (TappableCardButton card in GetComponent<QuestionManager>().optionButtons.GetComponentsInChildren<TappableCardButton>()) {
+        foreach (TappableCardButton card in GetComponent<PictureQuestionManager>().optionButtons.GetComponentsInChildren<TappableCardButton>()) {
             if (card.CheckDealt()) {
                 card.ReturnHome(true);
             }

@@ -39,6 +39,7 @@ public class QuestionManager : MonoBehaviour
 
     private string randomKanji = "一七万三上下中九二五人今休何先入八六円出分前北十千午半南友右名四国土外大天女子学小山川左年後日時書月木本来東校母毎気水火父生男白百聞行西見話語読車金長間雨電食高";
 
+    int switchRandom = 1;
 
     void Awake()
     {
@@ -56,7 +57,7 @@ public class QuestionManager : MonoBehaviour
         // Choose a "random" question
         UpdateProbabilites();
 
-        if (probabilites.Count > 0) {
+        if (probabilites.Count > 0 && switchRandom == 1) {
             // Load the question
         PickQuestion();
         UpdateImage();
@@ -236,12 +237,12 @@ public class QuestionManager : MonoBehaviour
                 card.GetComponent<Image>().color = new Color32(77,173,76,255);
                 card.SetTappable(false);
                 // Clip 0 is correct
-                audioSource.PlayOneShot(clips[0]);
+                //audioSource.PlayOneShot(clips[0]);
             }
             else if (currentQuestion.kanji.Contains(card.GetValue())) {
                 Debug.Log("Wrong Location...");
                 // Clip 1 is close
-                audioSource.PlayOneShot(clips[1]);
+                //audioSource.PlayOneShot(clips[1]);
                 card.GetComponent<Image>().color = new Color32(240,242,78,255);
 
                 if (currentQuestion.triesRemaining > 1) {
@@ -275,7 +276,7 @@ public class QuestionManager : MonoBehaviour
                 Debug.Log("WRONG!"); 
                 card.GetComponent<Image>().color = new Color32(212, 53, 53, 255);
                 // Clip 2 is incorrect
-                audioSource.PlayOneShot(clips[2]);
+                //audioSource.PlayOneShot(clips[2]);
 
                 if (currentQuestion.triesRemaining > 1) {
                     upperText.text = "もう一度...";
@@ -326,7 +327,17 @@ public class QuestionManager : MonoBehaviour
     }
 
     public void Next() {
-        tapHandler.ClearSlots();
-        LoadQuestion();
+        int switchRandom = Random.Range(0,2);
+
+        if (switchRandom == 0) {
+            Debug.Log("Switching to Kanji to Pic Question");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("KanjiToPic");
+        }
+
+        else if (switchRandom == 1) {
+            Debug.Log("Staying...");
+            tapHandler.ClearSlots();
+            LoadQuestion();
+        }
     }
 }
