@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1f8671c773a445b88c436452752f68, type: 3}
+  m_Name: 16 Airflow
+  m_EditorClassIdentifier: 
+  image: {fileID: 7620228714748275122, guid: c4afe38c78ad54c67a05d1095451a81e, type: 3}
+  kanji:
+  - "\u98A8"
+  - "\u91CF"
+  level: 0
+  triesRemaining: 2
+  pronounciation:
+  - "\u3075\u3046"
+  - "\u308A\u3087\u3046"
+  meaning: Air flow

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1f8671c773a445b88c436452752f68, type: 3}
+  m_Name: 13 Fan
+  m_EditorClassIdentifier: 
+  image: {fileID: -6001966251579029865, guid: d412b77e43938476c952085ab2559ff2, type: 3}
+  kanji:
+  - "\u9001"
+  - "\u98A8"
+  level: 0
+  triesRemaining: 2
+  pronounciation:
+  - "\u305D\u3046"
+  - "\u3075\u3046"
+  meaning: Fan

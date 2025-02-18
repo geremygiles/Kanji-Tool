@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1f8671c773a445b88c436452752f68, type: 3}
+  m_Name: 12 Ventilation
+  m_EditorClassIdentifier: 
+  image: {fileID: -6056191737498260222, guid: e7411f7cad62646e0ba9b5a24a752137, type: 3}
+  kanji:
+  - "\u63DB"
+  - "\u6C17"
+  level: 0
+  triesRemaining: 2
+  pronounciation:
+  - "\u304B\u3093"
+  - "\u304D"
+  meaning: Air flow
