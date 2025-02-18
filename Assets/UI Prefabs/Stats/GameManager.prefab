@@ -70,9 +70,10 @@ MonoBehaviour:
   idkButton: {fileID: 0}
   nextButton: {fileID: 0}
   clips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: bd0e345524ccd47f8bbbcb9084e0ca7d, type: 3}
+  - {fileID: 8300000, guid: 9542c5c633a8b4c6692ac1c833323814, type: 3}
+  - {fileID: 8300000, guid: 751cd372e5a9f4bbe919a03f8f34fc4e, type: 3}
+  - {fileID: 8300000, guid: a63c07de924704fe79554b74100d101c, type: 3}
 --- !u!82 &1755130919140772922
 AudioSource:
   m_ObjectHideFlags: 0

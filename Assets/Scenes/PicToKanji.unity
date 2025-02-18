@@ -2655,6 +2655,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1122598462}
     - target: {fileID: 7061204686969103098, guid: a16d8ce071767456b912f6d4ea9b9194, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 7017967037613736799}
+    - target: {fileID: 7061204686969103098, guid: a16d8ce071767456b912f6d4ea9b9194, type: 3}
       propertyPath: checkButton
       value: 
       objectReference: {fileID: 1270896386}
@@ -2671,6 +2675,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a16d8ce071767456b912f6d4ea9b9194, type: 3}
+--- !u!82 &7017967037613736799 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1755130919140772922, guid: a16d8ce071767456b912f6d4ea9b9194, type: 3}
+  m_PrefabInstance: {fileID: 7017967037613736798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

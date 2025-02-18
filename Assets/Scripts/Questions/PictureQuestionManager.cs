@@ -27,7 +27,7 @@ public class PictureQuestionManager : MonoBehaviour
 
     [SerializeField] Button nextButton;
 
-    AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
 
     [SerializeField] AudioClip[] clips;
 
@@ -194,13 +194,13 @@ public class PictureQuestionManager : MonoBehaviour
             card.GetComponent<Image>().color = new Color32(77,173,76,255);
             card.SetTappable(false);
             // Clip 0 is correct
-            //audioSource.PlayOneShot(clips[0]);
+            audioSource.PlayOneShot(clips[0]);
         }
         else {
             Debug.Log("WRONG!"); 
             card.GetComponent<Image>().color = new Color32(212, 53, 53, 255);
             // Clip 2 is incorrect
-            //audioSource.PlayOneShot(clips[2]);
+            audioSource.PlayOneShot(clips[2]);
 
             if (currentQuestion.triesRemaining > 1) {
                 upperText.text = "もう一度...";
@@ -248,6 +248,8 @@ public class PictureQuestionManager : MonoBehaviour
     }
 
     public void Next() {
+        audioSource.PlayOneShot(clips[3]);
+
         int switchRandom = Random.Range(0,2);
 
         Debug.Log(switchRandom);
