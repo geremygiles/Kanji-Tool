@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u73FE"
   - "\u91D1"
-  level: 0
-  triesRemaining: 2
+  level: 10
+  triesRemaining: 1
   pronounciation:
   - "\u3052\u3093"
   - "\u304D\u3093"
+  fullPronounciation: "\u3052\u3093\u304D\u3093"
   meaning: Cash

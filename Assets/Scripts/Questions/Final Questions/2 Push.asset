@@ -16,8 +16,9 @@ MonoBehaviour:
   kanji:
   - "\u62BC"
   - "\u3059"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304A"
+  fullPronounciation: "\u304A\u3059"
   meaning: To push

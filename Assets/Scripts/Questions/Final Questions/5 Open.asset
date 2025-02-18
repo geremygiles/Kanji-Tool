@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1f8671c773a445b88c436452752f68, type: 3}
   m_Name: 5 Open
   m_EditorClassIdentifier: 
-  image: {fileID: -4675984455548750182, guid: df0744e084b4e42788dbd11004d715f0, type: 3}
+  image: {fileID: -2323905627189542309, guid: 12556270ea41145b5bd79e0d1ec2422f, type: 3}
   kanji:
   - "\u958B"
   - "\u304F"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3072\u3089"
+  fullPronounciation: "\u3072\u3089\u304F"
   meaning: To open

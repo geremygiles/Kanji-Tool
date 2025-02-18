@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u9001"
   - "\u98A8"
-  level: 0
-  triesRemaining: 2
+  level: 10
+  triesRemaining: 1
   pronounciation:
   - "\u305D\u3046"
   - "\u3075\u3046"
+  fullPronounciation: "\u305D\u3046\u3075\u3046"
   meaning: Fan

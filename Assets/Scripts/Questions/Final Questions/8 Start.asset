@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u904B"
   - "\u8EE2"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3046\u3093"
   - "\u3066\u3093"
+  fullPronounciation: "\u3046\u3093\u3066\u3093"
   meaning: Start (a machine)

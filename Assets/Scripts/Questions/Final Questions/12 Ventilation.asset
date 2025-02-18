@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u63DB"
   - "\u6C17"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304B\u3093"
   - "\u304D"
+  fullPronounciation: "\u304B\u3093\u304D"
   meaning: Air flow

@@ -17,8 +17,9 @@ MonoBehaviour:
   - "\u6B62"
   - "\u307E"
   - "\u308C"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3068"
+  fullPronounciation: "\u3068\u307E\u308C"
   meaning: "Stop (on stop sign\uFF09"

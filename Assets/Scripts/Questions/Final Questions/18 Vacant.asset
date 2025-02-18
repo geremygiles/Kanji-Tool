@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u7A7A"
   - "\u5BA4"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304F\u3046"
   - "\u3057\u3064"
+  fullPronounciation: "\u304F\u3046\u3057\u3064"
   meaning: Vacant (room)

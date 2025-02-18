@@ -15,8 +15,9 @@ MonoBehaviour:
   image: {fileID: -5534233512943807684, guid: bad38f159364e4f329a87566f23a2813, type: 3}
   kanji:
   - "\u888B"
-  level: 0
-  triesRemaining: 2
+  level: 10
+  triesRemaining: 1
   pronounciation:
   - "\u3075\u304F\u308D"
+  fullPronounciation: "\u3075\u304F\u308D"
   meaning: Plastic Bag

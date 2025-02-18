@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u81EA"
   - "\u52D5"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3058"
   - "\u3069\u3046"
+  fullPronounciation: "\u3058\u3069\u3046"
   meaning: Automatic

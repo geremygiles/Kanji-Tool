@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u7981"
   - "\u6B62"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304D\u3093"
   - "\u3057"
+  fullPronounciation: "\u304D\u3093\u3057"
   meaning: Forbidden

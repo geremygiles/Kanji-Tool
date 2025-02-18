@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u9280"
   - "\u884C"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304E\u3093"
   - "\u3053\u3046"
+  fullPronounciation: "\u304E\u3093\u3053\u3046"
   meaning: Bank

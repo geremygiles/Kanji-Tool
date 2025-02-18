@@ -16,8 +16,9 @@ MonoBehaviour:
   kanji:
   - "\u5F15"
   - "\u304F"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3072"
+  fullPronounciation: "\u3072\u304F"
   meaning: To pull

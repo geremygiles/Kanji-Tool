@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u708A"
   - "\u98EF"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3059\u3044"
   - "\u306F\u3093"
+  fullPronounciation: "\u3059\u3044\u306F\u3093"
   meaning: Rice Cooking

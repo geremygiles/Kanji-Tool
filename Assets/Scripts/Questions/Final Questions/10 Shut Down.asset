@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u505C"
   - "\u6B62"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3066\u3044"
   - "\u3057"
+  fullPronounciation: "\u3066\u3044\u3057"
   meaning: Shut down, machine off

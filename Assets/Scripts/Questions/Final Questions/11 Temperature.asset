@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u6E29"
   - "\u5EA6"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304A\u3093"
   - "\u3069"
+  fullPronounciation: "\u304A\u3093\u3069"
   meaning: Temperature

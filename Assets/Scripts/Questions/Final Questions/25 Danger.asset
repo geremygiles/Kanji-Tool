@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u5371"
   - "\u967A"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304D"
   - "\u3051\u3093"
+  fullPronounciation: "\u304D\u3051\u3093"
   meaning: Danger

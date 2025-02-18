@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u5206"
   - "\u7159"
-  level: 0
-  triesRemaining: 2
+  level: 10
+  triesRemaining: 0
   pronounciation:
   - "\u3076\u3093"
   - "\u3048\u3093"
+  fullPronounciation: "\u3076\u3093\u3048\u3093"
   meaning: Smoking section, area

@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u6696"
   - "\u623F"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3060\u3093"
   - "\u307C\u3046"
+  fullPronounciation: "\u3060\u3093\u307C\u3046"
   meaning: Heating

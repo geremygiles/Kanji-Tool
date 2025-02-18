@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u975E"
   - "\u5E38"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3072"
   - "\u3058\u3087\u3046"
+  fullPronounciation: "\u3072\u3058\u3087\u3046"
   meaning: Emergency, extreme situation

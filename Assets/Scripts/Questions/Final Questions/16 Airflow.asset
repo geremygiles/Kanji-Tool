@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u98A8"
   - "\u91CF"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3075\u3046"
   - "\u308A\u3087\u3046"
+  fullPronounciation: "\u3075\u3046\u308A\u3087\u3046"
   meaning: Air flow

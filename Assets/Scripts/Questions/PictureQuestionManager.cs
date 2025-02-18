@@ -17,7 +17,11 @@ public class PictureQuestionManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI upperText;
 
+    [SerializeField] TextMeshProUGUI pronounciationText;
+
     [SerializeField] public GameObject optionButtons;
+
+    private TappableCardButton correctCard;
 
     [SerializeField] GameObject answerSlot;
 
@@ -27,7 +31,7 @@ public class PictureQuestionManager : MonoBehaviour
 
     [SerializeField] Button nextButton;
 
-    [SerializeField] AudioSource audioSource;
+    AudioSource audioSource;
 
     [SerializeField] AudioClip[] clips;
 
@@ -50,6 +54,7 @@ public class PictureQuestionManager : MonoBehaviour
     {
         // Stopping if on Stats screen
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Stats") return;
+        audioSource = FindFirstObjectByType<AudioSource>();
         LoadQuestion();
     }
 
@@ -74,6 +79,7 @@ public class PictureQuestionManager : MonoBehaviour
 
     private void ClearUpperText() {
         upperText.text = "";
+        pronounciationText.text = "";
     }
 
     private void PickQuestion() {
@@ -116,6 +122,7 @@ public class PictureQuestionManager : MonoBehaviour
         Transform option = optionButtons.transform.GetChild(optionIndexes[random]);
         optionIndexes.RemoveAt(random);
 
+        correctCard = option.GetComponent<TappableCardButton>();
         option.GetComponent<TappableCardButton>().SetValue(currentQuestion.image);
 
         usedImages = new List<Sprite>();
@@ -170,10 +177,7 @@ public class PictureQuestionManager : MonoBehaviour
     }
 
     private void AddFurigana() {
-        questionText.text += "\n";
-        foreach (string character in currentQuestion.pronounciation) {
-            questionText.text += character;
-        }
+        pronounciationText.text = currentQuestion.fullPronounciation;
     }
 
     public void CheckAnswer() {
@@ -208,17 +212,14 @@ public class PictureQuestionManager : MonoBehaviour
                 answerCorrect = false;
             }
             else {
-                upperText.text = "";
-                foreach (string kanji in currentQuestion.kanji) {
-                    upperText.text += kanji;
-                }
+                upperText.text = currentQuestion.meaning;
 
-                upperText.text += "\n";
+                pronounciationText.text += currentQuestion.fullPronounciation;
+                // This only happens at full fail
 
-                foreach (string section in currentQuestion.pronounciation) {
-                    upperText.text += section;
-                }
-                
+                correctCard.GetComponent<Image>().color = new Color32(77,173,76,255);
+
+                tapHandler.ClearSlot();
             
                 answerCorrect = false;
                 card.SetTappable(false);
@@ -235,8 +236,11 @@ public class PictureQuestionManager : MonoBehaviour
             AddFurigana();
         }
         else {
+            // This happens both tries
+
             currentQuestion.triesRemaining--;
             questionComplete = false;
+            
         }
 
         UpdateQuestionLevel(answerCorrect);

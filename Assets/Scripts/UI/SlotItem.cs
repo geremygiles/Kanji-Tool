@@ -27,13 +27,7 @@ public class SlotItem : MonoBehaviour
         // Populate the text
         var detailsText = detailsMenu.transform.GetChild(0).GetChild(0).GetChild(1);
 
-        string parsedPronounciation = "";
-
-        foreach (string item in question.pronounciation) {
-            parsedPronounciation += item;
-        }
-
-        var contents = "読み方：" + parsedPronounciation + "\n\n" + "意味：" + question.meaning + "\n\n" + "Reviews Remaining: " + (10 - question.level) + "\n\n" + "Current Level: " + question.level;
+        var contents = "読み方：" + question.fullPronounciation + "\n\n" + "意味：" + question.meaning + "\n\n" + "Reviews Remaining: " + (10 - question.level) + "\n\n" + "Current Level: " + question.level;
 
         detailsText.GetComponent<TextMeshProUGUI>().text = contents;
 

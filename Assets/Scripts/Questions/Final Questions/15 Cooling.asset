@@ -16,9 +16,10 @@ MonoBehaviour:
   kanji:
   - "\u51B7"
   - "\u623F"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u308C\u3044"
   - "\u307C\u3046"
+  fullPronounciation: "\u308C\u3044\u307C\u3046"
   meaning: Cooling

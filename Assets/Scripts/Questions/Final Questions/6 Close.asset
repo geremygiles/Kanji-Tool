@@ -17,8 +17,9 @@ MonoBehaviour:
   - "\u9589"
   - "\u3081"
   - "\u308B"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u3057"
+  fullPronounciation: "\u3057\u3081\u308B"
   meaning: To close

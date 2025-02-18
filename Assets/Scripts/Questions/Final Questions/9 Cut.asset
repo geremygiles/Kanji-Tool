@@ -16,8 +16,9 @@ MonoBehaviour:
   kanji:
   - "\u5207"
   - "\u308B"
-  level: 0
+  level: 10
   triesRemaining: 2
   pronounciation:
   - "\u304D"
+  fullPronounciation: "\u304D\u308B"
   meaning: To cut (i.e. power)

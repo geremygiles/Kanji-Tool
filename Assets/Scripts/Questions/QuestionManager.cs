@@ -29,7 +29,7 @@ public class QuestionManager : MonoBehaviour
 
     [SerializeField] Button nextButton;
 
-    [SerializeField] AudioSource audioSource;
+    AudioSource audioSource;
 
     [SerializeField] AudioClip[] clips;
 
@@ -37,7 +37,16 @@ public class QuestionManager : MonoBehaviour
 
     bool questionComplete = false;
 
-    private string randomKanji = "一七万三上下中九二五人今休何先入八六円出分前北十千午半南友右名四国土外大天女子学小山川左年後日時書月木本来東校母毎気水火父生男白百聞行西見話語読車金長間雨電食高";
+    private string randomKanji = "一七万三上下中九二五人今休何先入八六円出分前北十千午半南友右名四国土外大天女子学小山川左年後日時書月木本"
+    + "来東校母毎気水火父生男白百聞行西見話語読車金長間雨電食高不世主事京仕代以会住体作使借元兄公写冬切別力勉動医去口古台同味品員問図地堂場売夏"
+    + "夕多夜妹姉始字安室家少屋工帰広店度建弟強待心思急悪意手持教文料新方旅族早明映春昼曜有服朝業楽歌止正歩死注洋海漢牛物特犬理用田町画界病発的"
+    + "目真着知研社私秋究空立答紙終習考者肉自色花英茶親言計試買貸質赤走起足転近送通週運道重野銀開院集青音題風飯飲館駅験魚鳥黒与両乗予争互亡交他"
+    + "付件任伝似位余例供便係信倒候値偉側偶備働優光全共具内冷処列初判利到制刻割加助努労務勝勤化単危原参反収取受可号合向君否吸吹告呼命和商喜回因"
+    + "困園在報増声変夢太夫失好妻娘婚婦存宅守完官定実客害容宿寄富寒寝察対局居差市師席常平幸幾座庭式引当形役彼徒得御必忘忙念怒怖性恐恥息悲情想愛"
+    + "感慣成戦戻所才打払投折抜抱押招指捕掛探支放政敗散数断易昔昨晩景晴暗暮曲更最望期未末束杯果格構様権横機欠次欲歯歳残段殺民求決治法泳洗活流浮"
+    + "消深済渡港満演点然煙熱犯状猫王現球産由申留番疑疲痛登皆盗直相眠石破確示礼祖神福科程種積突窓笑等箱米精約組経給絵絶続緒罪置美老耳職育背能腹"
+    + "舞船良若苦草落葉薬術表要規覚観解記訪許認誤説調談論識警議負財貧責費資賛越路身辞込迎返迷追退逃途速連進遅遊過達違遠適選部都配酒閉関阪降限除"
+    + "険陽際雑難雪静非面靴頂頭頼顔願類飛首馬髪鳴";
 
     int switchRandom = 1;
 
@@ -50,6 +59,7 @@ public class QuestionManager : MonoBehaviour
     {
         // Stopping if on Stats screen
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Stats") return;
+        audioSource = FindFirstObjectByType<AudioSource>();
         LoadQuestion();
     }
 
@@ -212,7 +222,7 @@ public class QuestionManager : MonoBehaviour
 
     private void AddFurigana() {
         Slot[] slots = tapHandler.GetSlots();
-        for (int i = 0; i < slots.Length; i++) {
+        for (int i = 0; i < currentQuestion.pronounciation.Length; i++) {
             slots[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = currentQuestion.pronounciation[i];
         }
     }
@@ -291,10 +301,8 @@ public class QuestionManager : MonoBehaviour
 
                     upperText.text += "\n";
 
-                    foreach (string section in currentQuestion.pronounciation) {
-                        upperText.text += section;
-                    }
-                    
+                    upperText.text += currentQuestion.fullPronounciation;
+                    // This only happens at full fail
                 
                     answerCorrect = false;
                     card.SetTappable(false);
@@ -312,6 +320,7 @@ public class QuestionManager : MonoBehaviour
             AddFurigana();
         }
         else {
+            // This happens each try
             currentQuestion.triesRemaining--;
             questionComplete = false;
         }
